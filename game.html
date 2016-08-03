@@ -28,7 +28,6 @@ function preload() {
 var player;
 var enemy;
 var map;
-var layer;
 var cursors;
 
 var stars;
@@ -44,10 +43,13 @@ function create() {
     
     map = game.add.tilemap('map');
     map.addTilesetImage('public_tileset_by_orohnpokemon-d4vpcfu', 'tileset');
-    console.log(map.tileWidth);
-    layer = map.createLayer('Ground');
+    
+    var layer = map.createLayer('Ground');
     layer.resizeWorld();
     layer.wrap = true;
+
+    var layer1 = map.createLayer('Roads and Paths');
+    var layer2 = map.createLayer('Structures');
 
     // The player and its settings
     player = game.add.sprite(30, game.world.height - 150, 'dude');
